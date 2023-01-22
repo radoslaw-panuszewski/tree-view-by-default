@@ -1,4 +1,4 @@
-package pl.semidude.mongoviewtweaks
+package pl.semidude.treeviewbydefault
 
 import com.intellij.database.datagrid.DataGrid
 import com.intellij.database.datagrid.DataGridUtil
@@ -16,26 +16,28 @@ class TreeViewByDefaultAction : AnAction() {
         if (settings.pluginEnabled) {
             dataGridFrom(event)
                 ?.apply(::fixDataGrid)
-                ?.apply(::fixDataGridEveryTimeDatabaseRequestFinishes)
+                ?.apply(::fixDataGridEverytimeDatabaseRequestFinishes)
         }
     }
 
     private fun dataGridFrom(event: AnActionEvent): AutoExpandingTreeDataGrid? =
-        DataGridUtil.getDataGrid(event.dataContext)
+        DataGridUtil
+            .getDataGrid(event.dataContext)
             ?.let(::AutoExpandingTreeDataGrid)
 
     private fun fixDataGrid(dataGrid: AutoExpandingTreeDataGrid) {
         val gridStateHash = dataGrid.stateHash()
 
         if (gridStateHash !in fixedGridStates) {
-            logger.warn("Fixing data grid $gridStateHash")
+            logger.info("Fixing data grid $gridStateHash")
             dataGrid.switchToTreeAndAutoExpand()
             fixedGridStates.add(gridStateHash)
         }
     }
 
-    private fun fixDataGridEveryTimeDatabaseRequestFinishes(dataGrid: AutoExpandingTreeDataGrid) {
+    private fun fixDataGridEverytimeDatabaseRequestFinishes(dataGrid: AutoExpandingTreeDataGrid) {
         if (dataGrid !in gridsWithListeners) {
+            logger.info("Adding listener to data grid ${dataGrid.hashCode()}")
             dataGrid.addRequestFinishedListener { fixDataGrid(dataGrid) }
             gridsWithListeners.add(dataGrid)
         }

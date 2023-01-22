@@ -1,4 +1,4 @@
-package pl.semidude.mongoviewtweaks
+package pl.semidude.treeviewbydefault
 
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.ShowSettingsUtil

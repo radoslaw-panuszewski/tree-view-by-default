@@ -1,4 +1,4 @@
-package pl.semidude.mongoviewtweaks
+package pl.semidude.treeviewbydefault
 
 import com.intellij.database.connection.throwable.info.ErrorInfo
 import com.intellij.database.datagrid.DataConsumer.Column

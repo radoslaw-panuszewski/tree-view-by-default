@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-package pl.semidude.mongoviewtweaks
+package pl.semidude.treeviewbydefault
 
 import com.intellij.database.datagrid.DataGrid
 import com.intellij.database.datagrid.GridPresentationMode.TREE_TABLE

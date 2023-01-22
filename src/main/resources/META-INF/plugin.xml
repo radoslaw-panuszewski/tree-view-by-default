@@ -28,20 +28,20 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-            serviceImplementation="pl.semidude.mongoviewtweaks.TreeViewByDefaultSettings" />
+            serviceImplementation="pl.semidude.treeviewbydefault.TreeViewByDefaultSettings" />
 
         <applicationConfigurable
             parentId="tools"
-            instance="pl.semidude.mongoviewtweaks.TreeViewByDefaultSettingsConfigurable"
-            id="pl.semidude.mongoviewtweaks.TreeViewByDefaultSettingsConfigurable"
+            instance="pl.semidude.treeviewbydefault.TreeViewByDefaultSettingsConfigurable"
+            id="pl.semidude.treeviewbydefault.TreeViewByDefaultSettingsConfigurable"
             displayName="TreeViewByDefault Settings" />
     </extensions>
 
     <actions>
         <action
-            id="pl.semidude.mongoviewtweaks.TreeViewByDefaultAction"
-            class="pl.semidude.mongoviewtweaks.TreeViewByDefaultAction"
-            text="TreeViewByDefault Plugin Settings"
+            id="pl.semidude.treeviewbydefault.TreeViewByDefaultAction"
+            class="pl.semidude.treeviewbydefault.TreeViewByDefaultAction"
+            text="Tree View By Default Plugin Settings"
             description="The action which sets the 'Tree' as default view for the result grid."
             icon="AllIcons.Actions.ShowAsTree">
 
