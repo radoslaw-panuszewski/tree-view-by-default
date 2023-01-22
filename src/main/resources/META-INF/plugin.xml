@@ -14,7 +14,7 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description>
-        The data grid with query results by default is in the 'Table' presentation mode - this plugin changes that default to 'Tree'.
+        The data grid with query results by default is in the 'Table' presentation mode. This plugin changes it to 'Tree'.
 
         Additionally, if the results contain only one row, then it is automatically expanded.
     </description>
