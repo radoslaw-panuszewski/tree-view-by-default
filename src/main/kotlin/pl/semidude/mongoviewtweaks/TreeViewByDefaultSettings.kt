@@ -1,7 +1,5 @@
 package pl.semidude.mongoviewtweaks
 
-import com.intellij.database.datagrid.GridPresentationMode
-import com.intellij.database.datagrid.GridPresentationMode.TREE_TABLE
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
@@ -14,7 +12,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 )
 class TreeViewByDefaultSettings : PersistentStateComponent<TreeViewByDefaultSettings> {
 
-    var defaultPresentationMode: GridPresentationMode = TREE_TABLE
+    var pluginEnabled: Boolean = true
     var autoExpandEnabled: Boolean = true
 
     override fun getState() = this

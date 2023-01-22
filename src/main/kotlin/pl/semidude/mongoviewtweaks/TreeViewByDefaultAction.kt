@@ -8,13 +8,16 @@ import com.intellij.openapi.diagnostic.logger
 
 class TreeViewByDefaultAction : AnAction() {
 
+    private val settings by lazy { TreeViewByDefaultSettings.instance }
     private val fixedGridStates = mutableSetOf<String>()
     private val gridsWithListeners = mutableSetOf<DataGrid>()
 
     override fun update(event: AnActionEvent) {
-        dataGridFrom(event)
-            ?.apply(::fixDataGrid)
-            ?.apply(::fixDataGridEveryTimeDatabaseRequestFinishes)
+        if (settings.pluginEnabled) {
+            dataGridFrom(event)
+                ?.apply(::fixDataGrid)
+                ?.apply(::fixDataGridEveryTimeDatabaseRequestFinishes)
+        }
     }
 
     private fun dataGridFrom(event: AnActionEvent): AutoExpandingTreeDataGrid? =

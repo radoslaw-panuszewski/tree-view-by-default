@@ -8,17 +8,12 @@ import com.intellij.database.run.ui.treetable.GridTreeTable
 
 class AutoExpandingTreeDataGrid(private val dataGrid: DataGrid) : DataGrid by dataGrid {
 
-    private val settings = TreeViewByDefaultSettings.instance
+    private val settings by lazy { TreeViewByDefaultSettings.instance }
 
     fun switchToTreeAndAutoExpand() {
-        if (itMakesSenseToChangeAnything()) {
-            switchToTreeMode()
-            expandIfSingleRow()
-        }
+        switchToTreeMode()
+        expandIfSingleRow()
     }
-
-    private fun itMakesSenseToChangeAnything() =
-        settings.defaultPresentationMode == TREE_TABLE
 
     private fun switchToTreeMode() {
         dataGrid.presentationMode = TREE_TABLE
