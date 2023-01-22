@@ -5,6 +5,8 @@ import com.intellij.database.datagrid.GridPresentationMode.TABLE
 import com.intellij.database.datagrid.GridPresentationMode.TEXT
 import com.intellij.database.datagrid.GridPresentationMode.TREE_TABLE
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.options.ShowSettingsUtil
+import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBoxWithWidePopup
 import com.intellij.ui.components.JBCheckBox
 import com.intellij.util.ui.FormBuilder
@@ -13,7 +15,7 @@ import javax.swing.JPanel
 
 class TreeViewByDefaultSettingsConfigurable : Configurable {
 
-    private val settings get() = TreeViewByDefaultSettingsState.instance
+    private val settings get() = TreeViewByDefaultSettings.instance
     private lateinit var defaultPresentationModeCombo: ComboBoxWithWidePopup<String>
     private lateinit var autoExpandCheckbox: JBCheckBox // TODO make it clickable only if default presentation mode is TREE
     private lateinit var mainPanel: JPanel
@@ -53,6 +55,14 @@ class TreeViewByDefaultSettingsConfigurable : Configurable {
     }
 
     override fun getDisplayName() = "TreeViewByDefault Settings"
+
+    companion object {
+        fun openPluginSettings(project: Project?) {
+            ShowSettingsUtil
+                .getInstance()
+                .showSettingsDialog(project, TreeViewByDefaultSettingsConfigurable::class.java)
+        }
+    }
 }
 
 private fun GridPresentationMode.toComboItem() =

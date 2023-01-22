@@ -28,7 +28,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-            serviceImplementation="pl.semidude.mongoviewtweaks.TreeViewByDefaultSettingsState" />
+            serviceImplementation="pl.semidude.mongoviewtweaks.TreeViewByDefaultSettings" />
 
         <applicationConfigurable
             parentId="tools"
@@ -41,8 +41,9 @@
         <action
             id="pl.semidude.mongoviewtweaks.TreeViewByDefaultAction"
             class="pl.semidude.mongoviewtweaks.TreeViewByDefaultAction"
-            text="Table View By Default"
-            description="The action which sets the TREE view as default for the result grid.">
+            text="TreeViewByDefault Plugin Settings"
+            description="The action which sets the 'Tree' as default view for the result grid."
+            icon="AllIcons.Actions.ShowAsTree">
 
             <add-to-group group-id="Console.TableResult.Group.Secondary" anchor="first" />
 

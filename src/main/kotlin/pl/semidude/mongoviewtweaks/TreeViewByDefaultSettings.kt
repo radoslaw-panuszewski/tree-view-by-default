@@ -9,22 +9,22 @@ import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
 
 @State(
-    name = "org.intellij.sdk.settings.AppSettingsState",
+    name = "pl.semidude.mongoviewtweaks.TreeViewByDefaultSettings",
     storages = [Storage("TreeViewByDefault.xml")]
 )
-class TreeViewByDefaultSettingsState : PersistentStateComponent<TreeViewByDefaultSettingsState> {
+class TreeViewByDefaultSettings : PersistentStateComponent<TreeViewByDefaultSettings> {
 
     var defaultPresentationMode: GridPresentationMode = TREE_TABLE
     var autoExpandEnabled: Boolean = true
 
     override fun getState() = this
 
-    override fun loadState(state: TreeViewByDefaultSettingsState) {
+    override fun loadState(state: TreeViewByDefaultSettings) {
         XmlSerializerUtil.copyBean(state, this)
     }
 
     companion object {
-        val instance: TreeViewByDefaultSettingsState get() =
-            ApplicationManager.getApplication().getService(TreeViewByDefaultSettingsState::class.java)
+        val instance: TreeViewByDefaultSettings get() =
+            ApplicationManager.getApplication().getService(TreeViewByDefaultSettings::class.java)
     }
 }
