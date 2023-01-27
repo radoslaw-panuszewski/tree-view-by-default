@@ -21,9 +21,7 @@ class TreeViewByDefaultAction : AnAction() {
     }
 
     private fun dataGridFrom(event: AnActionEvent): AutoExpandingTreeDataGrid? =
-        DataGridUtil
-            .getDataGrid(event.dataContext)
-            ?.let(::AutoExpandingTreeDataGrid)
+        event.dataGrid?.let(::AutoExpandingTreeDataGrid)
 
     private fun fixDataGrid(dataGrid: AutoExpandingTreeDataGrid) {
         val gridStateHash = dataGrid.stateHash()

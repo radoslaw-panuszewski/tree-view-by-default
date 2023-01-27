@@ -12,7 +12,9 @@ class AutoExpandingTreeDataGrid(private val dataGrid: DataGrid) : DataGrid by da
 
     fun switchToTreeAndAutoExpand() {
         switchToTreeMode()
-        expandIfSingleRow()
+        if (settings.autoExpandEnabled) {
+            expandIfSingleRow()
+        }
     }
 
     private fun switchToTreeMode() {
@@ -20,20 +22,14 @@ class AutoExpandingTreeDataGrid(private val dataGrid: DataGrid) : DataGrid by da
     }
 
     private fun expandIfSingleRow() {
-        if (settings.autoExpandEnabled) {
-            (dataGrid.resultView.component as? GridTreeTable)
-                ?.tree
-                ?.takeIf { tree -> tree.rowCount == 1 }
-                ?.also { tree -> tree.expandRow(0) }
-        }
+        dataGrid.tree
+            ?.takeIf { tree -> tree.rowCount == 1 }
+            ?.also { tree -> tree.expandRow(0) }
     }
 
     fun stateHash() =
         dataGrid.hashCode().toString() + "_" + hashOfFirstRow()
 
     private fun hashOfFirstRow() =
-        (dataGrid.resultView.component as? GridTreeTable)
-            ?.tree
-            ?.getPathForRow(0)
-            ?.hashCode()
+        dataGrid.tree?.getPathForRow(0)?.hashCode()
 }
