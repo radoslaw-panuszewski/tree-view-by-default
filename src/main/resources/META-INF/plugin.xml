@@ -44,9 +44,15 @@
             text="Tree View By Default Plugin Settings"
             description="The action which sets the 'Tree' as default view for the result grid."
             icon="AllIcons.Actions.ShowAsTree">
-
             <add-to-group group-id="Console.TableResult.Group.Secondary" anchor="first" />
-
+        </action>
+        <action
+            id="pl.semidude.treeviewbydefault.TreeViewCopyAction"
+            class="pl.semidude.treeviewbydefault.TreeViewCopyAction"
+            text="Copy Leaf Value"
+            description="Copy only the leaf value, not full JSON containing it">
+            <add-to-group group-id="Console.TableResult.PopupGroup" anchor="first" />
+            <keyboard-shortcut keymap="$default" first-keystroke="alt C"/>
         </action>
     </actions>
 
