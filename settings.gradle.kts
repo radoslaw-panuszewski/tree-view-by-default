@@ -1,1 +1,1 @@
-rootProject.name = "mongo-view-tweaks"
+rootProject.name = "tree-view-by-default"
