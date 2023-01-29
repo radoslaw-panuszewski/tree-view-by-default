@@ -14,14 +14,14 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-        It is recommended to use this plugin in DataGrip, but it should also work in other IDEs with database support.
-        <br /><br />
-        What it does:
+        What this plugin does:
         <ul>
             <li>Changes default presentation mode of the query results to <tt>Tree</tt></li>
             <li>If there is only one result, it is automatically expanded</li>
             <li>You can copy value of the leaf node without the containing JSON via Cmd+Option+C </li>
         </ul>
+        <br />
+        It is recommended to use this plugin in DataGrip, but it should also work in other IDEs with database support.
     ]]>
     </description>
 

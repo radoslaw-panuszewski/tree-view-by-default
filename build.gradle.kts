@@ -2,10 +2,21 @@ plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.8.0"
     id("org.jetbrains.intellij") version "1.11.0"
+    id("io.github.nefilim.gradle.semver-plugin") version "0.3.13"
+}
+
+semver {
+    initialVersion("0.0.0")
+    tagPrefix("")
+    when (System.getenv("INCREASE_VERSION")) {
+        "MAJOR" -> versionModifier { nextMajor() }
+        "MINOR" -> versionModifier { nextMinor() }
+        "PATCH" -> versionModifier { nextPatch() }
+    }
 }
 
 group = "pl.semidude"
-version = "1.0.1"
+version = semver.version
 
 repositories {
     mavenCentral()
@@ -35,7 +46,7 @@ tasks {
 
     patchPluginXml {
         sinceBuild.set("213")
-        untilBuild.set("223.*")
+        untilBuild.set("213.*")
     }
 
     signPlugin {
@@ -46,5 +57,13 @@ tasks {
 
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
+    }
+
+    createAndPushVersionTag {
+        dependsOn(publishPlugin)
+    }
+
+    register("releasePlugin") {
+        dependsOn(createAndPushVersionTag)
     }
 }
