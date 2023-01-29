@@ -4,8 +4,10 @@ import com.intellij.database.connection.throwable.info.ErrorInfo
 import com.intellij.database.datagrid.DataConsumer
 import com.intellij.database.datagrid.DataGrid
 import com.intellij.database.datagrid.DataGridUtil
+import com.intellij.database.datagrid.GridColumn
 import com.intellij.database.datagrid.GridDataHookUp
 import com.intellij.database.datagrid.GridRequestSource
+import com.intellij.database.datagrid.GridRow
 import com.intellij.database.run.ui.treetable.GridTreeTable
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.ui.treeStructure.Tree
@@ -17,7 +19,7 @@ val DataGrid.tree: Tree?
     get() = (resultView.component as? GridTreeTable)?.tree
 
 fun DataGrid.addRequestFinishedListener(listener: () -> Unit) {
-    dataHookup.addRequestListener(object : GridDataHookUp.RequestListener<DataConsumer.Row, DataConsumer.Column> {
+    dataHookup.addRequestListener(object : GridDataHookUp.RequestListener<GridRow, GridColumn> {
         override fun error(var1: GridRequestSource, var2: ErrorInfo) {
             // ignore
         }

@@ -23,7 +23,7 @@ class TreeViewByDefaultSettingsConfigurable : Configurable {
     }
 
     private fun createPluginEnabledCheckbox() =
-        JBCheckBox("Automatically switch to tree mode on every database request?").apply {
+        JBCheckBox("Automatically switch to tree mode on every database request").apply {
             isSelected = settings.pluginEnabled
             addChangeListener {
                 autoExpandEnabledCheckbox.isEnabled = pluginEnabledCheckbox.isSelected
@@ -31,7 +31,7 @@ class TreeViewByDefaultSettingsConfigurable : Configurable {
         }
 
     private fun createAutoExpandEnabledCheckbox() =
-        JBCheckBox("Automatically expand if single row?").apply {
+        JBCheckBox("Automatically expand if single row").apply {
             isSelected = settings.autoExpandEnabled
             isEnabled = pluginEnabledCheckbox.isSelected
         }
