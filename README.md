@@ -1,4 +1,4 @@
-# Tree View By Default <img src="src/main/resources/META-INF/pluginIcon.svg" width="35" style="margin:-4px 0px" />
+# <img src="src/main/resources/META-INF/pluginIcon.svg" width="35" style="margin:-4px 0px" /> Tree View By Default
 
 If you use document databases (like MongoDB), it is more convenient to preview the query 
 results in `Tree` mode instead of the standard `Table` mode. Unfortunately, DataGrip does 
