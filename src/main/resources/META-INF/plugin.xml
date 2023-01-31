@@ -14,7 +14,14 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-        What this plugin does:
+        If you use document databases (like MongoDB), it is more convenient to preview the query
+        results in <tt>Tree</tt> mode instead of the standard <tt>Table</tt> mode. Unfortunately, DataGrip does
+        not provide any way to set <tt>Tree<tt> as default presentation mode, so you have to switch it
+        manually every time.
+        <br /> <br />
+        This plugin comes to rescue!
+        <br /> <br />
+        What it does:
         <ul>
             <li>Changes default presentation mode of the query results to <tt>Tree</tt></li>
             <li>If there is only one result, it is automatically expanded</li>
