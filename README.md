@@ -14,5 +14,7 @@ What it does:
 
 It is recommended to use this plugin in DataGrip, but it should also work in other IDEs with database support.
 
+The plugin is available in JetBrains marketplace: https://plugins.jetbrains.com/plugin/20941-tree-view-by-default
+
 ## Demo
 ![alt](doc/demo.gif)
