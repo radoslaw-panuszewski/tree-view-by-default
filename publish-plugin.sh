@@ -1,4 +1,3 @@
-export INCREASE_VERSION=MAJOR
 export CERTIFICATE_CHAIN=`cat .env/certificate-chain`
 export PRIVATE_KEY=`cat .env/private-key`
 export PRIVATE_KEY_PASSWORD=`cat .env/private-key-password`
