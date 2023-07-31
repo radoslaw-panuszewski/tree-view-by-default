@@ -1,7 +1,9 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.0"
-    id("org.jetbrains.intellij") version "1.11.0"
+    java
+    kotlin("jvm") version "1.9.0"
+    id("org.jetbrains.intellij") version "1.15.0"
     id("com.glovoapp.semantic-versioning") version "1.1.10"
 }
 
@@ -12,18 +14,24 @@ repositories {
 }
 
 intellij {
-    version.set("2023.1")
+    version.set("2023.2")
     type.set("IU")
     plugins.set(listOf("DatabaseTools"))
 }
 
-tasks {
-    withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
+}
+
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "17"
+    }
+
+    withType<Wrapper> {
+        gradleVersion = "8.2"
     }
 
     runIde {
@@ -31,8 +39,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("231")
-        untilBuild.set("231.*")
+        sinceBuild.set("232")
     }
 
     signPlugin {
