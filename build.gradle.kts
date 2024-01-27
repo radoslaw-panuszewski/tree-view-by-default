@@ -6,6 +6,7 @@ plugins {
 }
 
 group = "pl.semidude"
+version = versionFromNearestTag()
 
 repositories {
     mavenCentral()
