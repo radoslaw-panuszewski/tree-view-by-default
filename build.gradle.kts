@@ -1,10 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    java
-    kotlin("jvm") version "1.9.0"
-    id("org.jetbrains.intellij") version "1.15.0"
-    id("com.glovoapp.semantic-versioning") version "1.1.10"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.intellij)
 }
 
 group = "pl.semidude"
@@ -14,7 +12,7 @@ repositories {
 }
 
 intellij {
-    version.set("2023.2")
+    version.set("2023.3")
     type.set("IU")
     plugins.set(listOf("DatabaseTools"))
 }
@@ -31,15 +29,11 @@ tasks {
     }
 
     withType<Wrapper> {
-        gradleVersion = "8.2"
+        gradleVersion = "8.5"
     }
 
     runIde {
         ideDir.set(File(System.getenv("DATAGRIP_DIR")))
-    }
-
-    patchPluginXml {
-        sinceBuild.set("232")
     }
 
     signPlugin {
@@ -50,11 +44,5 @@ tasks {
 
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
-    }
-
-    task("printVersion") {
-        doLast {
-            println(project.semanticVersion.version.get())
-        }
     }
 }
