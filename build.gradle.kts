@@ -13,9 +13,9 @@ repositories {
 }
 
 intellij {
-    version.set("2023.3")
-    type.set("IU")
-    plugins.set(listOf("DatabaseTools"))
+    version = "2023.3"
+    type = "IU"
+    plugins = listOf("DatabaseTools")
 }
 
 java {
@@ -34,16 +34,21 @@ tasks {
     }
 
     runIde {
-        ideDir.set(File(System.getenv("DATAGRIP_DIR")))
+        ideDir = File(System.getenv("DATAGRIP_DIR"))
+    }
+
+    patchPluginXml {
+        sinceBuild = "233"
+        untilBuild = "*"
     }
 
     signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
+        certificateChain = System.getenv("CERTIFICATE_CHAIN")
+        privateKey = System.getenv("PRIVATE_KEY")
+        password = System.getenv("PRIVATE_KEY_PASSWORD")
     }
 
     publishPlugin {
-        token.set(System.getenv("PUBLISH_TOKEN"))
+        token = System.getenv("PUBLISH_TOKEN")
     }
 }
