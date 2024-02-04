@@ -27,16 +27,13 @@ java {
 }
 
 tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
-    }
-
-    withType<Wrapper> {
-        gradleVersion = "8.5"
+    patchPluginXml {
+        sinceBuild = "233"
+        untilBuild = "*.*"
     }
 
     runIde {
-        ideDir = File("/Users/radoslaw.panuszewski/Applications/DataGrip.app/Contents")
+        ideDir = File("${System.getenv("HOME")}/Applications/DataGrip.app/Contents")
     }
 
     signPlugin {
@@ -49,8 +46,11 @@ tasks {
         token = System.getenv("PUBLISH_TOKEN")
     }
 
-    patchPluginXml {
-        sinceBuild = "233"
-        untilBuild = "*.*"
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "17"
+    }
+
+    withType<Wrapper> {
+        gradleVersion = "8.5"
     }
 }
