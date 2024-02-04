@@ -18,6 +18,7 @@ intellij {
     version = "2023.3"
     type = "IU"
     plugins = listOf("DatabaseTools")
+    updateSinceUntilBuild = false
 }
 
 java {
@@ -27,11 +28,6 @@ java {
 }
 
 tasks {
-    patchPluginXml {
-        sinceBuild = "233"
-        untilBuild = "*.*"
-    }
-
     runIde {
         ideDir = File("${System.getenv("HOME")}/Applications/DataGrip.app/Contents")
     }
