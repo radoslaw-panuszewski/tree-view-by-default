@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -34,12 +36,7 @@ tasks {
     }
 
     runIde {
-        ideDir = File(System.getenv("DATAGRIP_DIR"))
-    }
-
-    patchPluginXml {
-        sinceBuild = "233"
-        untilBuild = "*"
+        ideDir = File("/Users/radoslaw.panuszewski/Applications/DataGrip.app/Contents")
     }
 
     signPlugin {
@@ -50,5 +47,10 @@ tasks {
 
     publishPlugin {
         token = System.getenv("PUBLISH_TOKEN")
+    }
+
+    patchPluginXml {
+        sinceBuild = "233"
+        untilBuild = "*.*"
     }
 }
