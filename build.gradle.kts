@@ -12,10 +12,11 @@ version = versionFromNearestTag()
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://www.jetbrains.com/intellij-repository/snapshots/") }
 }
 
 intellij {
-    version = "2023.3"
+    version = "2024.1"
     type = "IU"
     plugins = listOf("DatabaseTools")
     updateSinceUntilBuild = false
@@ -47,6 +48,6 @@ tasks {
     }
 
     withType<Wrapper> {
-        gradleVersion = "8.5"
+        gradleVersion = "8.7"
     }
 }

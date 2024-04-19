@@ -1,20 +1,12 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <idea-version since-build="233" />
+    <idea-version since-build="241" />
 
-    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>pl.semidude.tree-view-by-default</id>
 
-    <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>Tree View By Default</name>
 
-    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="radoslaw.panuszewski15@gmail.com">semidude</vendor>
+    <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
 
-    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
         If you use document databases (like MongoDB), it is more convenient to preview the query
         results in <tt>Tree</tt> mode instead of the standard <tt>Table</tt> mode. Unfortunately, DataGrip does
@@ -34,13 +26,9 @@
     ]]>
     </description>
 
-    <!-- Product and plugin compatibility requirements.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.database</depends>
 
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
             serviceImplementation="pl.semidude.treeviewbydefault.TreeViewByDefaultSettings" />
