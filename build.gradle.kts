@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.intellij)
@@ -43,11 +41,7 @@ tasks {
         token = System.getenv("PUBLISH_TOKEN")
     }
 
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
-    }
-
-    withType<Wrapper> {
-        gradleVersion = "8.7"
+    buildSearchableOptions {
+        enabled = false
     }
 }
