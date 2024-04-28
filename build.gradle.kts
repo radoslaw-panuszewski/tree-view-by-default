@@ -14,7 +14,7 @@ repositories {
 }
 
 intellij {
-    version = "2024.1"
+    version = "241-EAP-SNAPSHOT"
     type = "IU"
     plugins = listOf("DatabaseTools")
     updateSinceUntilBuild = false
