@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType.IntellijIdeaUltimate
+
+
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.intellij.platform)
@@ -25,7 +28,7 @@ version = scmVersion.version
 
 kotlin {
     jvmToolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -34,6 +37,8 @@ dependencies {
         intellijIdeaUltimate("2024.2.3")
         bundledPlugins("com.intellij.database")
         instrumentationTools()
+        pluginVerifier()
+        zipSigner()
     }
 }
 
@@ -67,6 +72,11 @@ intellijPlatform {
             <br />
             It is recommended to use this plugin in DataGrip, but it should also work in other IDEs with database support.
         """.trimIndent()
+    }
+    pluginVerification {
+        ides {
+            ide(IntellijIdeaUltimate, "243.18137.10")
+        }
     }
     signing {
         certificateChain = System.getenv("CERTIFICATE_CHAIN")
