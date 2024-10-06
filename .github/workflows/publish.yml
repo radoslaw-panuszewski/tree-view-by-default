@@ -6,7 +6,6 @@ on:
 
 jobs:
   publish:
-    name: Package, sign and publish the plugin
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
