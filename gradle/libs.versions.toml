@@ -1,7 +1,9 @@
 [versions]
-kotlin = "2.0.0"
-intellij-plugin = "1.17.4"
+kotlin = "2.0.20"
+intellij-platform = "2.1.0"
+axion-release = "1.18.12"
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-intellij = { id = "org.jetbrains.intellij", version.ref = "intellij-plugin" }
+intellij-platform = { id = "org.jetbrains.intellij.platform", version.ref = "intellij-platform" }
+axion-release = { id = "pl.allegro.tech.build.axion-release", version.ref = "axion-release" }

@@ -1,31 +1,4 @@
 <idea-plugin>
-    <idea-version since-build="242" />
-
-    <id>pl.semidude.tree-view-by-default</id>
-
-    <name>Tree View By Default</name>
-
-    <vendor email="radoslaw.panuszewski15@gmail.com">Radosław Panuszewski</vendor>
-
-    <description><![CDATA[
-        If you use document databases (like MongoDB), it is more convenient to preview the query
-        results in <tt>Tree</tt> mode instead of the standard <tt>Table</tt> mode. Unfortunately, DataGrip does
-        not provide any way to set <tt>Tree<tt> as default presentation mode, so you have to switch it
-        manually every time.
-        <br /> <br />
-        This plugin comes to rescue!
-        <br /> <br />
-        What it does:
-        <ul>
-            <li>Changes default presentation mode of the query results to <tt>Tree</tt></li>
-            <li>If there is only one result, it is automatically expanded</li>
-            <li>You can copy value of the leaf node without the containing JSON via Cmd+Option+C </li>
-        </ul>
-        <br />
-        It is recommended to use this plugin in DataGrip, but it should also work in other IDEs with database support.
-    ]]>
-    </description>
-
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.database</depends>
 
