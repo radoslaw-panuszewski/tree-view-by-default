@@ -1,7 +1,5 @@
 package pl.semidude.treeviewbydefault
 
-import com.intellij.database.datagrid.DataGrid
-import com.intellij.database.datagrid.DataGridUtil
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.diagnostic.logger
@@ -10,7 +8,7 @@ class TreeViewByDefaultAction : AnAction() {
 
     private val settings by lazy { TreeViewByDefaultSettings.instance }
     private val fixedGridStates = mutableSetOf<String>()
-    private val gridsWithListeners = mutableSetOf<DataGrid>()
+    private val gridsWithListeners = mutableSetOf<AutoExpandingTreeDataGrid>()
 
     override fun update(event: AnActionEvent) {
         if (settings.pluginEnabled) {
