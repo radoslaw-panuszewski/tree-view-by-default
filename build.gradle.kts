@@ -75,7 +75,7 @@ intellijPlatform {
     }
     pluginVerification {
         ides {
-            ide(IntellijIdeaUltimate, "243.18137.10")
+            ide(IntellijIdeaUltimate, "LATEST-EAP-SNAPSHOT", useInstaller = false)
         }
     }
     signing {
