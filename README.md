@@ -1,5 +1,9 @@
 # <img src="src/main/resources/META-INF/pluginIcon.svg" width="35" style="margin:-4px 0px" /> Tree View By Default
 
+![Version](https://img.shields.io/jetbrains/plugin/v/20941)
+![Version](https://img.shields.io/jetbrains/plugin/d/20941)
+![Version](https://img.shields.io/jetbrains/plugin/r/rating/20941)
+
 If you use document databases (like MongoDB), it is more convenient to preview the query 
 results in `Tree` mode instead of the standard `Table` mode. Unfortunately, DataGrip does 
 not provide any way to set `Tree` as default presentation mode, so you have to switch it 

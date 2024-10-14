@@ -2,7 +2,6 @@
 
 import org.jetbrains.intellij.platform.gradle.IntelliJPlatformType.IntellijIdeaUltimate
 
-
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.intellij.platform)
